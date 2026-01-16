@@ -1,5 +1,4 @@
 from feedgen.feed import FeedGenerator
-from datetime import timezone
 
 FEED_URL = "https://raffaellasuardini.github.io/django-new-contributor/feed.xml"
 

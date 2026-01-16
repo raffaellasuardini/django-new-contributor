@@ -11,8 +11,8 @@ contributors = set()
 @dataclass
 class Author:
     login: str
+    date_pr_merged: str
     name: str = None
-    date_pr_merged: datetime.datetime = None
 
     def __hash__(self):
         return hash(self.login)
@@ -75,7 +75,7 @@ def get_new_contributors(start_date: datetime.date = None, end_date: datetime.da
         Author(
             login=pr.get('author').get('login'),
             name=pr.get('author').get('name'),
-            date_pr_merged=datetime.datetime.strptime(pr.get('mergedAt'), '%Y-%m-%d')
+            date_pr_merged=pr.get('mergedAt')
         )
         for pr in prs
     }
