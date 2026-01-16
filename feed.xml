@@ -40,5 +40,15 @@
             <guid isPermaLink="false">https://github.com/raffaellasuardini</guid>
             <pubDate>Fri, 16 Jan 2026 14:08:28 +0000</pubDate>
         </item>
+        <item>
+            <title>🎉 Welcome Clifford Gama</title>
+            <link>https://github.com/cliffordgama</link>
+            <description>Clifford Gama just had their first PR merged into Django.
+
+                GitHub profile: https://github.com/cliffordgama
+            </description>
+            <guid isPermaLink="false">https://github.com/cliffordgama</guid>
+            <pubDate>Fri, 16 Jan 2026 16:08:28 +0000</pubDate>
+        </item>
     </channel>
 </rss>
