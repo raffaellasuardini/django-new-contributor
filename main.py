@@ -1,6 +1,7 @@
 from src.github import get_new_contributors
 from src.feed import generate_feed
 
+
 def main():
     new_authors = get_new_contributors()
     if not new_authors:
