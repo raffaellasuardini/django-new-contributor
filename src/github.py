@@ -12,6 +12,7 @@ contributors = set()
 class Author:
     login: str
     name: str = None
+    date_pr_merged: datetime.datetime = None
 
     def __hash__(self):
         return hash(self.login)
@@ -21,6 +22,9 @@ class Author:
 
     def get_url(self) -> str:
         return f"https://github.com/{self.login}"
+
+    def get_name_or_login(self):
+        return self.name or self.login
 
 
 def _run_gh(command: str) -> list[dict]:
@@ -70,7 +74,8 @@ def get_new_contributors(start_date: datetime.date = None, end_date: datetime.da
     authors = {
         Author(
             login=pr.get('author').get('login'),
-            name=pr.get('author').get('name')
+            name=pr.get('author').get('name'),
+            date_pr_merged=datetime.datetime.strptime(pr.get('mergedAt'), '%Y-%m-%d')
         )
         for pr in prs
     }

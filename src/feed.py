@@ -1,10 +1,10 @@
 from feedgen.feed import FeedGenerator
 from datetime import timezone
 
+FEED_URL = "https://raffaellasuardini.github.io/django-new-contributor/feed.xml"
+
 
 def generate_feed(new_authors, output_path="feed.xml"):
-    FEED_URL = "https://raffaellasuardini.github.io/django-new-contributor/feed.xml"
-
     fg = FeedGenerator()
     fg.title("New Django Contributors")
     fg.link(href="https://github.com/django/django", rel="alternate")
@@ -16,11 +16,12 @@ def generate_feed(new_authors, output_path="feed.xml"):
     for author in new_authors:
         fe = fg.add_entry()
         fe.id(author.get_url())
-        fe.title(f"🎉 Welcome @{author.login}")
+        fe.title(f"🎉 Welcome {author.get_name_or_login()}")
         fe.link(href=author.get_url())
         fe.description(
             f"@{author.login} just had their first PR merged into Django.\n\n"
             f"GitHub profile: {author.get_url()}"
         )
+        fe.pubdate(author.date_pr_merged)
 
     fg.rss_file(output_path)
