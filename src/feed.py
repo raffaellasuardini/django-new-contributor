@@ -21,6 +21,6 @@ def generate_feed(new_authors, output_path="feed.xml"):
             f"@{author.login} just had their first PR merged into Django.\n\n"
             f"GitHub profile: {author.get_url()}"
         )
-        fe.pubdate(author.date_pr_merged)
+        fe.pubDate(author.date_pr_merged)
 
     fg.rss_file(output_path)
