@@ -41,25 +41,27 @@ def _run_gh(command: str) -> list[dict]:
 
 def get_merged_prs(start_date: datetime.date, end_date: datetime.date) -> list[dict]:
     command = (
-        f'gh pr list --repo {REPO} '
+        f"gh pr list --repo {REPO} "
         f'-S "is:pr merged:{start_date}..{end_date}" '
-        f'-L 50 '
-        '--json author,mergedAt,createdAt'
+        f"-L 50 "
+        "--json author,mergedAt,createdAt"
     )
     return _run_gh(command)
 
 
 def is_new_contributor(author_login: str, end_date: datetime.date = None) -> bool:
     command = (
-        f'gh pr list --repo {REPO} '
+        f"gh pr list --repo {REPO} "
         f'-S "is:pr is:merged author:{author_login} merged:1970-01-01..{end_date}" '
-        f' --json number'
+        f" --json number"
     )
     prs = _run_gh(command)
     return len(prs) <= 1
 
 
-def get_new_contributors(start_date: datetime.date = None, end_date: datetime.date = None) -> List[Author]:
+def get_new_contributors(
+    start_date: datetime.date = None, end_date: datetime.date = None
+) -> List[Author]:
     today = datetime.date.today()
     last_sunday = today - datetime.timedelta(days=today.weekday() + 1)
     last_monday = last_sunday - datetime.timedelta(days=6)
@@ -73,15 +75,17 @@ def get_new_contributors(start_date: datetime.date = None, end_date: datetime.da
 
     authors = {
         Author(
-            login=pr.get('author').get('login'),
-            name=pr.get('author').get('name'),
-            date_pr_merged=pr.get('mergedAt')
+            login=pr.get("author").get("login"),
+            name=pr.get("author").get("name"),
+            date_pr_merged=pr.get("mergedAt"),
         )
         for pr in prs
     }
 
     new_contributors = [
-        author for author in authors if is_new_contributor(author.login, end_date=end_date)
+        author
+        for author in authors
+        if is_new_contributor(author.login, end_date=end_date)
     ]
 
     return new_contributors
