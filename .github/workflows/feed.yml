@@ -1,6 +1,7 @@
 name: Update RSS feed
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "30 * * * *"   # every minute 15 of every hour of every day
 
