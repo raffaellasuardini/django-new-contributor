@@ -60,7 +60,7 @@ def is_new_contributor(author_login: str, end_date: datetime.date = None) -> boo
 
 
 def get_new_contributors(
-    start_date: datetime.date = None, end_date: datetime.date = None
+        start_date: datetime.date = None, end_date: datetime.date = None
 ) -> List[Author]:
     today = datetime.date.today()
     last_sunday = today - datetime.timedelta(days=today.weekday() + 1)
