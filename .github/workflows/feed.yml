@@ -2,7 +2,7 @@ name: Update RSS feed
 
 on:
   schedule:
-    - cron: "15 * * * *"   # every minute 15 of every hour of every day
+    - cron: "30 * * * *"   # every minute 15 of every hour of every day
 
 jobs:
   build:
