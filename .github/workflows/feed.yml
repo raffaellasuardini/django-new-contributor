@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: "30 * * * *"   # every minute 15 of every hour of every day
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
