@@ -1,54 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
-    <channel>
-        <title>New Django Contributors</title>
-        <link>https://raffaellasuardini.github.io/django-new-contributor/feed.xml</link>
-        <description>New contributors who had their first PR merged into Django</description>
-        <atom:link href="https://raffaellasuardini.github.io/django-new-contributor/feed.xml" rel="self"
-                   type="application/rss+xml"/>
-        <docs>http://www.rssboard.org/rss-specification</docs>
-        <generator>python-feedgen</generator>
-        <language>en</language>
-        <lastBuildDate>Fri, 16 Jan 2026 15:44:11 +0000</lastBuildDate>
-        <item>
-            <title>🎉 Welcome Amar</title>
-            <link>https://github.com/aadeina</link>
-            <description>@aadeina just had their first PR merged into Django.
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>New Django Contributors</title><link>https://raffaellasuardini.github.io/django-new-contributor/feed.xml</link><description>New contributors who had their first PR merged into Django</description><atom:link href="https://raffaellasuardini.github.io/django-new-contributor/feed.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 21 Jan 2026 16:58:09 +0000</lastBuildDate><item><title>🎉 Welcome Rudraksha Dwivedi</title><link>https://github.com/Rudraksha-007</link><description>Rudraksha Dwivedi just had their first PR merged into Django.
 
-                GitHub profile: https://github.com/aadeina
-            </description>
-            <guid isPermaLink="false">https://github.com/aadeina</guid>
-            <pubDate>Thu, 08 Jan 2026 15:20:39 +0000</pubDate>
-        </item>
-        <item>
-            <title>🎉 Welcome Andrea Zanotto</title>
-            <link>https://github.com/sipa-echo-zaoa</link>
-            <description>@sipa-echo-zaoa just had their first PR merged into Django.
+GitHub profile: https://github.com/Rudraksha-007</description><guid isPermaLink="false">https://github.com/Rudraksha-007</guid><pubDate>Mon, 12 Jan 2026 18:34:15 +0000</pubDate></item><item><title>🎉 Welcome Parth Paradkar</title><link>https://github.com/parth-paradkar</link><description>Parth Paradkar just had their first PR merged into Django.
 
-                GitHub profile: https://github.com/sipa-echo-zaoa
-            </description>
-            <guid isPermaLink="false">https://github.com/sipa-echo-zaoa</guid>
-            <pubDate>Fri, 09 Jan 2026 19:08:28 +0000</pubDate>
-        </item>
-       <item>
-            <title>🎉 Welcome panino</title>
-            <link>https://github.com/raffaellasuardini</link>
-            <description>Panino just had their first PR merged into Django.
+GitHub profile: https://github.com/parth-paradkar</description><guid isPermaLink="false">https://github.com/parth-paradkar</guid><pubDate>Mon, 12 Jan 2026 13:46:22 +0000</pubDate></item><item><title>🎉 Welcome Kundan Yadav</title><link>https://github.com/kundan223</link><description>Kundan Yadav just had their first PR merged into Django.
 
-                GitHub profile: https://github.com/sipa-echo-zaoa
-            </description>
-            <guid isPermaLink="false">https://github.com/raffaellasuardini</guid>
-            <pubDate>Fri, 16 Jan 2026 14:08:28 +0000</pubDate>
-        </item>
-        <item>
-            <title>🎉 Welcome Clifford Gama</title>
-            <link>https://github.com/cliffordgama</link>
-            <description>Clifford Gama just had their first PR merged into Django.
-
-                GitHub profile: https://github.com/cliffordgama
-            </description>
-            <guid isPermaLink="false">https://github.com/cliffordgama</guid>
-            <pubDate>Fri, 16 Jan 2026 16:08:28 +0000</pubDate>
-        </item>
-    </channel>
-</rss>
+GitHub profile: https://github.com/kundan223</description><guid isPermaLink="false">https://github.com/kundan223</guid><pubDate>Wed, 14 Jan 2026 19:45:03 +0000</pubDate></item></channel></rss>
