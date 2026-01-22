@@ -5,7 +5,6 @@ from dataclasses import dataclass
 from typing import List
 
 REPO = "django/django"
-contributors = set()
 
 
 @dataclass
@@ -39,10 +38,10 @@ def _run_gh(command: str) -> list[dict]:
     return json.loads(process.stdout)
 
 
-def get_merged_prs(start_date: datetime.date, end_date: datetime.date) -> list[dict]:
+def get_merged_prs(current_date: datetime.date) -> list[dict]:
     command = (
         f"gh pr list --repo {REPO} "
-        f'-S "is:pr merged:{start_date}..{end_date}" '
+        f'-S "is:pr merged:{current_date}" '
         f"-L 50 "
         "--json author,mergedAt,createdAt"
     )
@@ -60,18 +59,17 @@ def is_new_contributor(author_login: str, end_date: datetime.date = None) -> boo
 
 
 def get_new_contributors(
-        start_date: datetime.date = None, end_date: datetime.date = None
+        current_date: datetime.date = None
 ) -> List[Author]:
     today = datetime.date.today()
-    last_sunday = today - datetime.timedelta(days=today.weekday() + 1)
-    last_monday = last_sunday - datetime.timedelta(days=6)
 
-    if end_date is None:
-        end_date = last_sunday
-    if start_date is None:
-        start_date = last_monday
+    if current_date is None:
+        current_date = today
 
-    prs = get_merged_prs(start_date, end_date)
+    prs = get_merged_prs(current_date)
+
+    if len(prs) == 0:
+        return []
 
     authors = {
         Author(
@@ -85,7 +83,7 @@ def get_new_contributors(
     new_contributors = [
         author
         for author in authors
-        if is_new_contributor(author.login, end_date=end_date)
+        if is_new_contributor(author.login, end_date=today)
     ]
 
-    return new_contributors
+    return sorted(new_contributors, key=lambda a: a.login)
