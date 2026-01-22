@@ -7,11 +7,11 @@ def main():
     if not new_authors:
         print("No new contributors found.")
     else:
+        print("I'm creating a feed rss")
+        generate_feed(new_authors)
         print("New contributors:")
         for author in new_authors:
             print(author.login)
-    print("I'm creating a feed rss")
-    generate_feed(new_authors)
 
 
 if __name__ == "__main__":

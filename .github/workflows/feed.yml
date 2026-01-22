@@ -22,6 +22,7 @@ jobs:
       - name: Install deps
         run: |
           pip install feedgen
+          pip install feedparser
 
       - name: Install gh
         run: |

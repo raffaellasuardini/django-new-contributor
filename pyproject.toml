@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "feedgen>=1.0.0",
+    "feedparser>=6.0.12",
 ]
 
 [dependency-groups]
