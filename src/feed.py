@@ -8,10 +8,10 @@ FEED_PATH = "feed.xml"
 
 def generate_feed(new_authors):
     fg = FeedGenerator()
-    fg.title("New Django Contributors")
+    fg.title("New Django Contributor")
     fg.link(href="https://github.com/django/django", rel="alternate")
     fg.link(href=FEED_URL, rel="self", type="application/rss+xml")
-    fg.description("New contributors who had their first PR merged into Django")
+    fg.description("New contributor who had their first PR merged into Django")
     fg.language("en")
     fg.id(FEED_URL)
 
