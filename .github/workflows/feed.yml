@@ -24,6 +24,8 @@ jobs:
           pip install feedgen
           pip install feedparser
           pip install PyGithub
+          pip install python-decouple
+
 
       - name: Set Github token
         run: echo "GH_TOKEN=${{ secrets.FEED_GITHUB_TOKEN }}" >> $GITHUB_ENV
