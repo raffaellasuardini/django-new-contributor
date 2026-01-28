@@ -25,10 +25,11 @@ jobs:
           pip install feedparser
           pip install PyGithub
 
-      - env:
-          GH_TOKEN: ${{ secrets.FEED_GITHUB_TOKEN }}
-        run: |
-          gh api /PATH
+      - name: Set Github token
+        run: echo "GH_TOKEN=${{ secrets.FEED_GITHUB_TOKEN }}" >> $GITHUB_ENV
+
+      - name: test auth
+        run: gh api user
 
       - name: Generate feed
         run: |
