@@ -23,14 +23,12 @@ jobs:
         run: |
           pip install feedgen
           pip install feedparser
+          pip install PyGithub
 
-      - name: Install gh
+      - env:
+          GH_TOKEN: ${{ secrets.FEED_GITHUB_TOKEN }}
         run: |
-          sudo apt-get install gh
-
-      - name: Auth gh
-        run: |
-          echo "${{ secrets.FEED_GITHUB_TOKEN }}" | gh auth login --with-token
+          gh api /PATH
 
       - name: Generate feed
         run: |

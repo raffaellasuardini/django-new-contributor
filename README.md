@@ -48,6 +48,7 @@ uv sync
 ```bash
 python main.py
 ```
-5. Use [GitHub pages](https://docs.github.com/en/pages) to publish the live `feed.xml`
+5. Use [GitHub pages](https://docs.github.com/en/pages) to publish the live `feed.xml` 
+6. Add your token to `Secrets and variable` in the settings of your repository
 
 Feed URL : `https://<your-username>.github.io/<repo-name>/feed.xml`
