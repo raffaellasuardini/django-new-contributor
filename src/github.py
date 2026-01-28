@@ -1,16 +1,18 @@
-import subprocess
-import json
 import datetime
 from dataclasses import dataclass
 from typing import List
+from github import Github, Auth
+from decouple import config
 
 REPO = "django/django"
-
+GITHUB_TOKEN = config("GITHUB_TOKEN")
+auth = Auth.Token(GITHUB_TOKEN)
+g = Github(auth=auth)
 
 @dataclass
 class Author:
     login: str
-    date_pr_merged: str
+    date_pr_merged: datetime.date
     name: str = None
 
     def __hash__(self):
@@ -26,36 +28,26 @@ class Author:
         return self.name or self.login
 
 
-def _run_gh(command: str) -> list[dict]:
-    process = subprocess.run(
-        command,
-        shell=True,
-        capture_output=True,
-        text=True,
+def get_merged_prs(current_date: datetime.date):
+    query = (
+        f"repo:{REPO} "
+        f"type:pr "
+        f"merged:{current_date.strftime('%Y-%m-%d')} "
     )
-    if process.returncode != 0:
-        raise RuntimeError(process.stderr)
-    return json.loads(process.stdout)
+    prs = g.search_issues(query)
+    return prs
 
 
-def get_merged_prs(current_date: datetime.date) -> list[dict]:
-    command = (
-        f"gh pr list --repo {REPO} "
-        f'-S "is:pr merged:{current_date}" '
-        f"-L 50 "
-        "--json author,mergedAt,createdAt"
+def is_new_contributor(author_login: str) -> bool:
+    query = (
+        f"repo:{REPO} "
+        f"state:closed "
+        f"is:pr "
+        f"author:{author_login} "
     )
-    return _run_gh(command)
+    prs = g.search_issues(query)
 
-
-def is_new_contributor(author_login: str, end_date: datetime.date = None) -> bool:
-    command = (
-        f"gh pr list --repo {REPO} "
-        f'-S "is:pr is:merged author:{author_login} merged:1970-01-01..{end_date}" '
-        f" --json number"
-    )
-    prs = _run_gh(command)
-    return len(prs) <= 1
+    return prs.totalCount <= 1
 
 
 def get_new_contributors(
@@ -68,14 +60,14 @@ def get_new_contributors(
 
     prs = get_merged_prs(current_date)
 
-    if len(prs) == 0:
+    if prs.totalCount == 0:
         return []
 
     authors = {
         Author(
-            login=pr.get("author").get("login"),
-            name=pr.get("author").get("name"),
-            date_pr_merged=pr.get("mergedAt"),
+            login=pr.user.login,
+            name=pr.user.name,
+            date_pr_merged=pr.pull_request.merged_at,
         )
         for pr in prs
     }
@@ -83,7 +75,7 @@ def get_new_contributors(
     new_contributors = [
         author
         for author in authors
-        if is_new_contributor(author.login, end_date=today)
+        if is_new_contributor(author.login)
     ]
 
     return sorted(new_contributors, key=lambda a: a.login)

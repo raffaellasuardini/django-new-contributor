@@ -7,6 +7,8 @@ requires-python = ">=3.13"
 dependencies = [
     "feedgen>=1.0.0",
     "feedparser>=6.0.12",
+    "pygithub>=2.8.1",
+    "python-decouple>=3.8",
 ]
 
 [dependency-groups]

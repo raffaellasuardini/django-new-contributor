@@ -7,7 +7,7 @@ The feed can be used by feed reader (e.g. MEE6) to announce and welcome new cont
 ## How it works
 
 The project:
-1. Uses the GitHub CLI (`gh`) to fetch merged pull requests from `django/django`.
+1. Uses `PyGithub` to fetch merged pull requests from `django/django`.
 2. Detects which authors are first-time contributors.
 3. Generates a static RSS feed (`feed.xml`).
 4. Publishes the feed via GitHub Pages.
@@ -26,13 +26,13 @@ Each RSS item looks like:
 ## Requirements
 
 - Python 3.10+
-- GitHub CLI (`gh`)
+- PyGithub
 - `feedgen` and `feedparser` library
 
 ## Installation
-1. After installing `gh` authenticate with your GitHub account.
+1. After creating a GitHub Token, copy `.env.example` and insert your token in the `.env` file
 ```bash
-gh auth login
+cp .env.example .env
 ```
 2. Create a virtual env:
 ```bash
