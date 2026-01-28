@@ -28,7 +28,7 @@ jobs:
 
 
       - name: Set Github token
-        run: echo "GH_TOKEN=${{ secrets.FEED_GITHUB_TOKEN }}" >> $GITHUB_ENV
+        run: echo "GH_TOKEN=${{ secrets.FEED_GITHUB_TOKEN }}" >> $GITHUB_TOKEN
 
       - name: test auth
         run: gh api user
