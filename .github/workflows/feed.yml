@@ -3,7 +3,7 @@ name: Update RSS feed
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 * * * *"   # every minute 15 of every hour of every day
+    - cron: "30 * * * *"   # every minute 30 of every hour of every day
 
 permissions:
   contents: write
@@ -28,7 +28,7 @@ jobs:
 
 
       - name: Set Github token
-        run: echo "GH_TOKEN=${{ secrets.FEED_GITHUB_TOKEN }}" >> $GITHUB_TOKEN
+        run: echo "GITHUB_TOKEN=${{ secrets.FEED_GITHUB_TOKEN }}" >> $GITHUB_ENV
 
       - name: test auth
         run: gh api user
