@@ -53,7 +53,7 @@ jobs:
       - name: Generate feed
         run: |
           # download existing feed
-          curl -s -f -o ${{ env.FEED_FILENAME }} ${{env.FEED_URL}} ${{ env.FEED_FILENAME}} 
+          curl -s -f -o ${{ env.FEED_FILENAME }} ${{secrets.FEED_URL}} ${{ env.FEED_FILENAME}} 
           || echo "No existing feed found"
           python main.py
 
