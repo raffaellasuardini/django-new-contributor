@@ -53,8 +53,7 @@ jobs:
       - name: Generate feed
         run: |
           # download existing feed
-          curl -s -f -o ${{ env.FEED_FILENAME }} ${{secrets.FEED_URL}} ${{ env.FEED_FILENAME}} 
-          || echo "No existing feed found"
+          curl -s -f -o ${{ env.FEED_FILENAME }} ${{secrets.FEED_URL}} ${{ env.FEED_FILENAME}} || echo "No existing feed found"
           python main.py
 
       - name: Deploy to Github Pages
