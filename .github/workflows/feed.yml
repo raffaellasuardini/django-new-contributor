@@ -4,6 +4,10 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "30 * * * *"   # every minute 30 of every hour of every day
+  push:
+    branches:
+      - main
+      - develop
 
 permissions:
   contents: write
@@ -14,6 +18,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -26,6 +32,17 @@ jobs:
           pip install PyGithub
           pip install python-decouple
 
+      - name: Set environment variables
+        run: |
+          if [[ "${{ github.ref}}" == "refs/heads/develop" ]]; then
+            echo "FEED_FILENAME=feed-test.xml" >> $GITHUB_ENV
+            echo "FEED_TITLE_SUFIX= (TEST)" >> $GITHUB_ENV
+          else
+            echo "FEED_FILENAME=feed-test.xml" >> $GITHUB_ENV
+            echo "FEED_TITLE_SUFIX=" >> $GITHUB_ENV
+          fi
+          
+
 
       - name: Set Github token
         run: echo "GITHUB_TOKEN=${{ secrets.FEED_GITHUB_TOKEN }}" >> $GITHUB_ENV
@@ -35,12 +52,17 @@ jobs:
 
       - name: Generate feed
         run: |
+          # download existing feed
+          curl -s -f -o ${{ env.FEED_FILENAME }} ${{env.FEED_URL}} ${{ env.FEED_FILENAME}} 
+          || echo "No existing feed found"
           python main.py
 
-      - name: Commit & push
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add feed.xml
-          git commit -m "Update RSS feed" || exit 0
-          git push
+      - name: Deploy to Github Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
+          keep_files: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-action[bot]@users.noreply.github.com'

@@ -1,14 +1,17 @@
 import os
 import feedparser
 from feedgen.feed import FeedGenerator
+from decouple import config
 
-FEED_URL = "https://raffaellasuardini.github.io/django-new-contributor/feed.xml"
-FEED_PATH = "feed.xml"
+FEED_FILENAME = config('FEED_FILENAME', default='feed.xml')
+FEED_URL = config('FEED_URL') + FEED_FILENAME
+FEED_PATH = FEED_FILENAME
+FEED_TITLE_SUFIX = config('FEED_TITLE_SUFIX', default='')
 
 
 def generate_feed(new_authors):
     fg = FeedGenerator()
-    fg.title("New Django Contributor")
+    fg.title(f"New Django Contributor {FEED_TITLE_SUFIX}")
     fg.link(href="https://github.com/django/django", rel="alternate")
     fg.link(href=FEED_URL, rel="self", type="application/rss+xml")
     fg.description("New contributor who had their first PR merged into Django")
