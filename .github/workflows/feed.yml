@@ -55,6 +55,8 @@ jobs:
           # download existing feed
           curl -s -f -o ${{ env.FEED_FILENAME }} ${{ vars.FEED_URL }}${{ env.FEED_FILENAME}} || echo "No existing feed found"
           python main.py
+        env:
+          FEED_URL: ${{ vars.FEED_URL}}
 
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v4
