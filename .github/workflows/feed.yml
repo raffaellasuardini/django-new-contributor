@@ -38,7 +38,7 @@ jobs:
             echo "FEED_FILENAME=feed-test.xml" >> $GITHUB_ENV
             echo "FEED_TITLE_SUFIX= (TEST)" >> $GITHUB_ENV
           else
-            echo "FEED_FILENAME=feed-test.xml" >> $GITHUB_ENV
+            echo "FEED_FILENAME=feed.xml" >> $GITHUB_ENV
             echo "FEED_TITLE_SUFIX=" >> $GITHUB_ENV
           fi
           
@@ -64,6 +64,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
           publish_branch: gh-pages
+          enable_jekyll: true
           keep_files: true
           user_name: 'github-actions[bot]'
           user_email: 'github-action[bot]@users.noreply.github.com'
