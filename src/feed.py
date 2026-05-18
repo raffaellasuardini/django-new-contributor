@@ -7,6 +7,7 @@ FEED_FILENAME = config('FEED_FILENAME', default='feed.xml')
 FEED_URL = config('FEED_URL') + FEED_FILENAME
 FEED_PATH = FEED_FILENAME
 FEED_TITLE_SUFIX = config('FEED_TITLE_SUFIX', default='')
+MAX_ENTRIES = 50
 
 
 def generate_feed(new_authors):
@@ -19,26 +20,28 @@ def generate_feed(new_authors):
     fg.id(FEED_URL)
 
     existing_guids = set()
+    old_entities = []
 
-    # load previous feed
+    # check previous feed till MAX_ENTRIES
     if os.path.exists(FEED_PATH):
-        old_feed = feedparser.parse(FEED_PATH)
-        for entry in old_feed.entries:
-            existing_guids.add(entry.id)
+        parsed_feed = feedparser.parse(FEED_PATH)
+        old_entities = parsed_feed.entries[:MAX_ENTRIES]
+        existing_guids = set([entry.id for entry in old_entities])
 
-            fe = fg.add_entry()
-            fe.id(entry.id)
-            fe.title(entry.title)
-            fe.link(href=entry.link)
-            fe.description(entry.description)
-            fe.pubDate(entry.published)
+    truly_new_authors = [author for author in new_authors if author.get_url() not in existing_guids]
+
+    # load previous feed till MAX_ENTRIES
+    for entry in reversed(old_entities[:MAX_ENTRIES - len(truly_new_authors)]):
+        fe = fg.add_entry()
+        fe.id(entry.id)
+        fe.title(entry.title)
+        fe.link(href=entry.link)
+        fe.description(entry.description)
+        fe.pubDate(entry.published)
 
     # add new contributor
-    for author in new_authors:
+    for author in truly_new_authors:
         guid = author.get_url()
-
-        if guid in existing_guids:
-            continue
 
         fe = fg.add_entry()
         fe.id(guid)
