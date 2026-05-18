@@ -46,7 +46,7 @@ def generate_feed(new_authors):
         fe = fg.add_entry()
         fe.id(guid)
         fe.title(f"🎉 Welcome {author.get_name_or_login()}")
-        fe.link(href=author.pr.get_url())
+        fe.link(href=author.get_url())
         fe.description(
             f"{author.get_name_or_login()} just had their first PR merged into Django.\n\n"
             f"GitHub profile: {guid}"
