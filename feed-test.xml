@@ -1,20 +1,74 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>New Django Contributor</title><link>https://raffaellasuardini.github.io/django-new-contributor/feed.xml</link><description>New contributor who had their first PR merged into Django</description><atom:link href="https://raffaellasuardini.github.io/django-new-contributor/feed.xml" rel="self" type="application/rss+xml"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 13 May 2026 18:13:32 +0000</lastBuildDate><item><title>🎉 Welcome TildaDares</title><link>https://github.com/django/django/pull/21023</link><description>TildaDares just had their first PR merged into Django.
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+    <channel>
+        <title>New Django Contributor</title>
+        <link>https://raffaellasuardini.github.io/django-new-contributor/feed-test.xml</link>
+        <description>New contributor who had their first PR merged into Django</description>
+        <atom:link href="https://raffaellasuardini.github.io/django-new-contributor/feed-test.xml" rel="self"
+                   type="application/rss+xml"/>
+        <docs>http://www.rssboard.org/rss-specification</docs>
+        <generator>python-feedgen</generator>
+        <language>en</language>
+        <lastBuildDate>Tue, 19 May 2026 12:53:01 +0000</lastBuildDate>
+        <item>
+            <title>Fixed #37096 -- Fixed test_invalid_choice_db_option on Python 3.14.5+.</title>
+            <link>https://github.com/django/django/pull/21275</link>
+            <description>🎉 Welcome Kasey just had their first PR merged into Django.
 
-GitHub profile: https://github.com/TildaDares</description><guid isPermaLink="false">https://github.com/TildaDares</guid><pubDate>Wed, 29 Apr 2026 18:52:25 +0000</pubDate></item><item><title>🎉 Welcome Kundan Yadav</title><link>https://github.com/kundan223</link><description>Kundan Yadav just had their first PR merged into Django.
+                GitHub profile: https://github.com/kadam257
+            </description>
+            <guid isPermaLink="false">https://github.com/kadam257</guid>
+            <pubDate>Tue, 12 May 2026 19:16:43 +0000</pubDate>
+        </item>
+        <item>
+            <title>Fixed #27825 -- Documented that model instantiation does not coerce field values.</title>
+            <link>https://github.com/django/django/pull/21174</link>
+            <description>🎉 Welcome somi just had their first PR merged into Django.
 
-                GitHub profile: https://github.com/kundan223</description><guid isPermaLink="false">https://github.com/kundan223</guid><pubDate>Wed, 14 Jan 2026 19:45:03 +0000</pubDate></item><item><title>🎉 Welcome amakarudze</title><link>https://github.com/django/django/pull/21022</link><description>amakarudze just had their first PR merged into Django.
+                GitHub profile: https://github.com/1wos
+            </description>
+            <guid isPermaLink="false">https://github.com/1wos</guid>
+            <pubDate>Tue, 12 May 2026 14:09:43 +0000</pubDate>
+        </item>
+        <item>
+            <title>🎉 Welcome Denny Biasiolli</title>
+            <link>https://github.com/django/django/pull/21199</link>
+            <description>Denny Biasiolli just had their first PR merged into Django.
 
-GitHub profile: https://github.com/amakarudze</description><guid isPermaLink="false">https://github.com/amakarudze</guid><pubDate>Tue, 28 Apr 2026 10:42:49 +0000</pubDate></item><item><title>🎉 Welcome vkaracic</title><link>https://github.com/django/django/pull/20385</link><description>vkaracic just had their first PR merged into Django.
+                GitHub profile: https://github.com/dennybiasiolli
+            </description>
+            <guid isPermaLink="false">https://github.com/dennybiasiolli</guid>
+            <pubDate>Mon, 04 May 2026 17:45:17 +0000</pubDate>
+        </item>
+        <item>
+            <title>🎉 Welcome Héctor Castillo</title>
+            <link>https://github.com/django/django/pull/21216</link>
+            <description>Héctor Castillo just had their first PR merged into Django.
 
-GitHub profile: https://github.com/vkaracic</description><guid isPermaLink="false">https://github.com/vkaracic</guid><pubDate>Wed, 29 Apr 2026 15:28:14 +0000</pubDate></item><item><title>🎉 Welcome adamchainz</title><link>https://github.com/django/django/pull/21192</link><description>adamchainz just had their first PR merged into Django.
+                GitHub profile: https://github.com/Wenzeltelger
+            </description>
+            <guid isPermaLink="false">https://github.com/Wenzeltelger</guid>
+            <pubDate>Mon, 04 May 2026 17:53:51 +0000</pubDate>
+        </item>
+        <item>
+            <title>🎉 Welcome MANAS MADESHIYA</title>
+            <link>https://github.com/django/django/pull/21120</link>
+            <description>MANAS MADESHIYA just had their first PR merged into Django.
 
-GitHub profile: https://github.com/adamchainz</description><guid isPermaLink="false">https://github.com/adamchainz</guid><pubDate>Wed, 29 Apr 2026 20:42:29 +0000</pubDate></item><item><title>🎉 Welcome Fashad-Ahmed</title><link>https://github.com/django/django/pull/21187</link><description>Fashad-Ahmed just had their first PR merged into Django.
+                GitHub profile: https://github.com/MANAS225
+            </description>
+            <guid isPermaLink="false">https://github.com/MANAS225</guid>
+            <pubDate>Mon, 04 May 2026 18:30:23 +0000</pubDate>
+        </item>
+        <item>
+            <title>🎉 Welcome amakarudze</title>
+            <link>https://github.com/django/django/pull/21022</link>
+            <description>amakarudze just had their first PR merged into Django.
 
-GitHub profile: https://github.com/Fashad-Ahmed</description><guid isPermaLink="false">https://github.com/Fashad-Ahmed</guid><pubDate>Wed, 29 Apr 2026 17:47:50 +0000</pubDate></item><item><title>🎉 Welcome dennybiasiolli</title><link>https://github.com/django/django/pull/21199</link><description>dennybiasiolli just had their first PR merged into Django.
-
-GitHub profile: https://github.com/dennybiasiolli</description><guid isPermaLink="false">https://github.com/dennybiasiolli</guid><pubDate>Mon, 04 May 2026 17:45:17 +0000</pubDate></item><item><title>🎉 Welcome Wenzeltelger</title><link>https://github.com/django/django/pull/21216</link><description>Wenzeltelger just had their first PR merged into Django.
-
-GitHub profile: https://github.com/Wenzeltelger</description><guid isPermaLink="false">https://github.com/Wenzeltelger</guid><pubDate>Mon, 04 May 2026 17:53:51 +0000</pubDate></item><item><title>🎉 Welcome MANAS225</title><link>https://github.com/django/django/pull/21120</link><description>MANAS225 just had their first PR merged into Django.
-
-GitHub profile: https://github.com/MANAS225</description><guid isPermaLink="false">https://github.com/MANAS225</guid><pubDate>Mon, 04 May 2026 18:30:23 +0000</pubDate></item></channel></rss>
+                GitHub profile: https://github.com/amakarudze
+            </description>
+            <guid isPermaLink="false">https://github.com/amakarudze</guid>
+            <pubDate>Tue, 28 Apr 2026 10:42:49 +0000</pubDate>
+        </item>
+    </channel>
+</rss>
